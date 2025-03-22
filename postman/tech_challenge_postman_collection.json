@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Tech Challenge - Usu\u00e1rios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Criar Usu\u00e1rio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Jo\u00e3o\",\n  \"email\": \"joao@email.com\",\n  \"login\": \"joaologin\",\n  \"senha\": \"123456\",\n  \"endereco\": \"Rua A\",\n  \"tipoUsuario\": \"CLIENTE\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Validar Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"login\": \"joaologin\",\n  \"senha\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/validate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "validate"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Trocar Senha",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"login\": \"joaologin\",\n  \"oldPassword\": \"123456\",\n  \"newPassword\": \"novaSenha123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/change-password",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "change-password"
+          ]
+        }
+      }
+    }
+  ]
+}
