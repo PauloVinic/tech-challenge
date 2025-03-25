@@ -6,6 +6,16 @@ Projeto desenvolvido por **Paulo Vinicius de Souza Martinez** para o programa de
 
 Backend desenvolvido com **Spring Boot** que fornece uma API RESTful para gerenciar usuários, restaurantes, cardápios e tipos de usuários. Projeto com foco em boas práticas de arquitetura (Clean Architecture), testes automatizados e documentação.
 
+## 📥 Link para Download
+
+O código-fonte completo do projeto está disponível no GitHub:  
+🔗 [https://github.com/PauloVinic/tech-challenge](https://github.com/PauloVinic/tech-challenge)
+
+Você pode cloná-lo com:
+```bash
+git clone https://github.com/PauloVinic/tech-challenge.git
+```
+
 ## 🚀 Tecnologias Utilizadas
 
 - Java 21
@@ -42,7 +52,7 @@ tech_challenge_backend/
 
 - **Testes Unitários**: Cobrem os services e parte dos controllers.
 - **Testes de Integração**: Validam o comportamento dos endpoints com `@WebMvcTest` e `MockMvc`.
-- **Cobertura de Código (JaCoCo)**: 85% de cobertura geral, com destaque para os controllers e services.
+- **Cobertura de Código (JaCoCo)**: 83% de cobertura geral, com destaque para os controllers e services.
 
 ### Gerar e visualizar relatório de cobertura:
 
@@ -86,40 +96,35 @@ Após iniciar o projeto, acesse:
 http://localhost:8080/swagger-ui/index.html
 ```
 
-## 📬 Exemplos de Requisições
+## 📬 Exemplos de Requisições (funcionais e independentes)
 
-### Criar Usuário
-
-**POST** `/usuarios`
-
+### 1. Criar Tipo de Usuário
+**POST** `/api/tipos-usuario`
 ```json
 {
-  "login": "paulo",
-  "senha": "123456",
-  "tipoUsuarioId": 1
+  "nomeTipo": "CLIENTE"
 }
 ```
 
-### Login
-
-**POST** `/usuarios/login`
-
+### 2. Criar Usuário
+**POST** `/api/users`
 ```json
 {
-  "login": "paulo",
-  "senha": "123456"
+  "nome": "João",
+  "email": "joao@email.com",
+  "login": "joao123",
+  "senha": "senha123",
+  "endereco": "Rua A",
+  "tipoUsuario": { "id": 1 }
 }
 ```
 
-### Trocar Senha
-
-**PUT** `/usuarios/senha`
-
+### 3. Login do Usuário
+**POST** `/api/users/validate`
 ```json
 {
-  "login": "paulo",
-  "oldPassword": "123456",
-  "newPassword": "novaSenha"
+  "login": "joao123",
+  "senha": "senha123"
 }
 ```
 
