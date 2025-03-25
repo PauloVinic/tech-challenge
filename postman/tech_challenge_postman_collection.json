@@ -1,92 +1,132 @@
 {
   "info": {
-    "name": "Tech Challenge - Usu\u00e1rios",
+    "name": "Tech Challenge - Completa",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
       "name": "Criar Usu\u00e1rio",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"nome\": \"Jo\u00e3o\",\n  \"email\": \"joao@email.com\",\n  \"login\": \"joaologin\",\n  \"senha\": \"123456\",\n  \"endereco\": \"Rua A\",\n  \"tipoUsuario\": \"CLIENTE\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8080/api/users",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "users"
-          ]
-        }
-      }
+      "method": "POST",
+      "path": "/api/users"
     },
     {
       "name": "Validar Login",
+      "method": "POST",
+      "path": "/api/users/validate"
+    },
+    {
+      "name": "Trocar Senha",
+      "method": "POST",
+      "path": "/api/users/change-password"
+    },
+    {
+      "name": "Buscar Usu\u00e1rio por Login",
+      "method": "GET",
+      "path": "/api/users/testuser"
+    },
+    {
+      "name": "Atualizar Usu\u00e1rio",
+      "method": "PUT",
+      "path": "/api/users/1"
+    },
+    {
+      "name": "Deletar Usu\u00e1rio",
+      "method": "DELETE",
+      "path": "/api/users/1"
+    },
+    {
+      "name": "Criar Tipo de Usu\u00e1rio",
+      "method": "POST",
+      "path": "/api/tipos-usuario"
+    },
+    {
+      "name": "Criar Restaurante",
+      "method": "POST",
+      "path": "/api/restaurantes"
+    },
+    {
+      "name": "Criar Item do Card\u00e1pio",
+      "method": "POST",
+      "path": "/api/itens-cardapio"
+    },
+    {
+      "name": "Listar Tipos de Usu\u00e1rio",
       "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"login\": \"joaologin\",\n  \"senha\": \"123456\"\n}"
-        },
+        "method": "GET",
         "url": {
-          "raw": "http://localhost:8080/api/users/validate",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "users",
-            "validate"
-          ]
+          "raw": "http://localhost:8080/api/tipos-usuario"
         }
       }
     },
     {
-      "name": "Trocar Senha",
+      "name": "Buscar Tipo de Usu\u00e1rio por ID",
       "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"login\": \"joaologin\",\n  \"oldPassword\": \"123456\",\n  \"newPassword\": \"novaSenha123\"\n}"
-        },
+        "method": "GET",
         "url": {
-          "raw": "http://localhost:8080/api/users/change-password",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "users",
-            "change-password"
-          ]
+          "raw": "http://localhost:8080/api/tipos-usuario/1"
+        }
+      }
+    },
+    {
+      "name": "Deletar Tipo de Usu\u00e1rio",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/tipos-usuario/1"
+        }
+      }
+    },
+    {
+      "name": "Listar Restaurantes",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/restaurantes"
+        }
+      }
+    },
+    {
+      "name": "Buscar Restaurante por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/restaurantes/1"
+        }
+      }
+    },
+    {
+      "name": "Deletar Restaurante",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/restaurantes/1"
+        }
+      }
+    },
+    {
+      "name": "Listar Itens do Card\u00e1pio",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/itens-cardapio"
+        }
+      }
+    },
+    {
+      "name": "Buscar Item do Card\u00e1pio por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/itens-cardapio/1"
+        }
+      }
+    },
+    {
+      "name": "Deletar Item do Card\u00e1pio",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/api/itens-cardapio/1"
         }
       }
     }

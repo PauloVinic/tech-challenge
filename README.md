@@ -1,109 +1,137 @@
-# Tech Challenge - Backend (Fase 1)
+# Tech Challenge Backend - Fase 2
 
-Este projeto é parte do Tech Challenge da Fase 1 da Pós-Tech, responsável por implementar o backend do sistema de gestão de usuários para restaurantes.
+Projeto desenvolvido por **Paulo Vinicius de Souza Martinez** para o programa de pós-graduação em Engenharia de Software com Foco em Backend - FIAP.
 
-## 🛠 Tecnologias Utilizadas
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- PostgreSQL
-- Docker e Docker Compose
-- Lombok
+## 📚 Descrição
+
+Backend desenvolvido com **Spring Boot** que fornece uma API RESTful para gerenciar usuários, restaurantes, cardápios e tipos de usuários. Projeto com foco em boas práticas de arquitetura (Clean Architecture), testes automatizados e documentação.
+
+## 🚀 Tecnologias Utilizadas
+
+- Java 21
+- Spring Boot 3.4.4
+- JUnit 5 + Mockito
 - Maven
+- PostgreSQL (via Docker Compose)
+- JaCoCo (relatórios de cobertura)
+- Swagger/OpenAPI
+- Docker/Docker Compose
 
-## 🚀 Como Rodar o Projeto
+## 📁 Estrutura do Projeto
+
+```
+tech_challenge_backend/
+├── src/
+│   ├── main/
+│   │   ├── java/com/techchallenge/tech_challenge_backend/
+│   │   │   ├── controller/
+│   │   │   ├── service/
+│   │   │   ├── dto/
+│   │   │   ├── model/
+│   │   │   ├── repository/
+│   │   │   └── config/
+│   └── test/
+│       └── java/com/techchallenge/tech_challenge_backend/
+│           ├── controller/
+│           └── service/
+├── docker-compose.yml
+└── pom.xml
+```
+
+## 🧪 Testes Automatizados
+
+- **Testes Unitários**: Cobrem os services e parte dos controllers.
+- **Testes de Integração**: Validam o comportamento dos endpoints com `@WebMvcTest` e `MockMvc`.
+- **Cobertura de Código (JaCoCo)**: 85% de cobertura geral, com destaque para os controllers e services.
+
+### Gerar e visualizar relatório de cobertura:
+
+```bash
+./mvnw clean verify
+```
+
+Abra o relatório em:
+
+```bash
+target/site/jacoco/index.html
+```
+
+## 📦 Como Executar
 
 ### Pré-requisitos
-- Docker e Docker Compose instalados
 
-### Passos
-1. Clone o repositório ou extraia o `.zip`
-2. Navegue até o diretório do projeto
-3. Rode o comando:
-   ```bash
-   docker-compose up --build
-   ```
-4. A aplicação estará disponível em `http://localhost:8080`
+- Java 21+
+- Docker + Docker Compose
+- Maven Wrapper (`./mvnw` incluído no projeto)
 
-Banco de dados PostgreSQL estará disponível em `localhost:5432`, com:
-- **Usuário**: postgres
-- **Senha**: postgres
-- **Database**: tech_challenge
+### Subir o Banco de Dados:
 
----
+```bash
+docker-compose up -d
+```
 
-## 📦 Endpoints Disponíveis
+### Rodar o Projeto
+
+```bash
+./mvnw spring-boot:run
+```
+
+A aplicação estará disponível em `http://localhost:8080`.
+
+## 🔎 Documentação da API
+
+Após iniciar o projeto, acesse:
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+## 📬 Exemplos de Requisições
 
 ### Criar Usuário
-```
-POST /api/users
-```
-Body:
+
+**POST** `/usuarios`
+
 ```json
 {
-  "nome": "João",
-  "email": "joao@email.com",
-  "login": "joaologin",
+  "login": "paulo",
   "senha": "123456",
-  "endereco": "Rua A",
-  "tipoUsuario": "CLIENTE"
+  "tipoUsuarioId": 1
 }
 ```
 
-### Buscar por login
-```
-GET /api/users/{login}
-```
+### Login
 
-### Atualizar usuário
-```
-PUT /api/users/{id}
-```
-Body: (igual ao de criação)
+**POST** `/usuarios/login`
 
-### Deletar usuário
-```
-DELETE /api/users/{id}
-```
-
-### Validar login
-```
-POST /api/users/validate
-```
 ```json
 {
-  "login": "joaologin",
+  "login": "paulo",
   "senha": "123456"
 }
 ```
 
-### Trocar senha
-```
-POST /api/users/change-password
-```
+### Trocar Senha
+
+**PUT** `/usuarios/senha`
+
 ```json
 {
-  "login": "joaologin",
+  "login": "paulo",
   "oldPassword": "123456",
-  "newPassword": "novaSenha123"
+  "newPassword": "novaSenha"
 }
 ```
 
----
-
 ## ✅ Requisitos Atendidos
-- CRUD completo de usuários
-- Campo obrigatório de tipo de usuário (CLIENTE ou DONO_RESTAURANTE)
-- Validação de login e troca de senha com segurança
-- Senhas criptografadas com BCrypt
-- Docker Compose com banco PostgreSQL
-- Estrutura com boas práticas (DTOs, Services, Controllers, Validations)
+
+- [x] Testes unitários com cobertura superior a 80%
+- [x] Testes de integração para controllers
+- [x] Documentação Swagger
+- [x] Banco de dados via Docker Compose
+- [x] Clean Architecture aplicada
+- [x] API REST funcional com CRUDs de entidades principais
 
 ---
 
-## 📬 Collection do Postman
-Uma collection está disponível na pasta `/postman` com exemplos de testes prontos para os endpoints.
-
----
-
-Desenvolvido para fins acadêmicos - Pós-Tech.
+© 2025 - Paulo Vinicius de Souza Martinez

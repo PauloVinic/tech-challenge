@@ -32,7 +32,7 @@ public class User {
 
     private String endereco;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "tipo_usuario_id")
     private TipoUsuario tipoUsuario;
 }

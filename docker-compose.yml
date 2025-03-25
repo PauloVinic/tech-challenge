@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  app:
+    image: openjdk:21
+    container_name: tech_challenge_backend
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ./mvnw spring-boot:run
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
   db:
     image: postgres:15
     container_name: postgres-db

@@ -4,7 +4,7 @@ import com.techchallenge.tech_challenge_backend.dto.UserDTOs.*;
 import com.techchallenge.tech_challenge_backend.model.User;
 import com.techchallenge.tech_challenge_backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
         User user = fromDTO(dto);

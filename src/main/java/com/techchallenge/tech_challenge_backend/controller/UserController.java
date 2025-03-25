@@ -1,14 +1,12 @@
 package com.techchallenge.tech_challenge_backend.controller;
 
 import com.techchallenge.tech_challenge_backend.dto.UserDTOs.*;
-import com.techchallenge.tech_challenge_backend.model.User;
 import com.techchallenge.tech_challenge_backend.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")

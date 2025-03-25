@@ -6,10 +6,16 @@ import lombok.Data;
 
 @Data
 @Entity
-public class TipoUsuario {
+public class Restaurante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nomeTipo;
+    private String nome;
+    private String endereco;
+    private String tipoCozinha;
+    private String horarioFuncionamento;
+
+    @ManyToOne
+    private User dono;
 }
